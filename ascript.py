@@ -1,9 +1,9 @@
 import ply.lex as lex
 import ply.yacc as yacc
-reserves = {"var" : "VAR", 'if':'IF', 'trace':'TRACE'}
+reserves = {"var" : "VAR", 'if':'IF', 'trace':'TRACE', 'function':'FUNCTION'}
 tokens = ['NUMBER', 'ASSIGN', "SEMI", 
 "ID", "STRING", 'LBRACE', 'RBRACE',
-'LPAREN', 'RPAREN', 'EQUAL']+reserves.values()
+'LPAREN', 'RPAREN', 'EQUAL', 'COMMA', ]+reserves.values()
 t_ASSIGN = r'='
 t_SEMI = r';'
 t_STRING = r'".*"'
@@ -12,7 +12,7 @@ t_RBRACE = r'}'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_EQUAL = r'=='
-
+t_COMMA = r','
 t_ignore = ' \t'
 def t_newline(t):
     r'\n+'
